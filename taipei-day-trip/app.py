@@ -27,7 +27,7 @@ def attractions():
 			SELECT JSON_ARRAYAGG(images)
 			FROM attraction_image
 			WHERE attraction_image.attraction_id = attraction.id
-			) AS img
+			) AS images
 			FROM attraction
 			INNER JOIN located ON attraction.id = located.attraction_id
 			INNER JOIN mrt ON located.mrt_id = mrt.id
@@ -40,7 +40,7 @@ def attractions():
 			cursor.execute( f"{query_data} WHERE attraction.name LIKE %s OR mrt.mrt= %s ORDER BY attraction.id LIMIT %s , %s ;", (f"%{keyword}%",keyword,page*12,12))
 			results = cursor.fetchall()
 			for item in results:
-				item['img'] = json.loads(item['img'])
+				item['images'] = json.loads(item['images'])
 
 			cursor.execute(f"{query_count} WHERE attraction.name LIKE %s ;",(f"%{keyword}%",))
 			total= cursor.fetchone()
@@ -50,16 +50,16 @@ def attractions():
 			cursor.execute( f"{query_data} ORDER BY attraction.id LIMIT %s , %s ;", (page*12,12))
 			results = cursor.fetchall()
 			for item in results:
-				item['img'] = json.loads(item['img'])
+				item['images'] = json.loads(item['images'])
 
 			cursor.execute(f"{query_count}")
 			total= cursor.fetchone()
 			
 				
-		remain=total['COUNT(attraction.id)']-((page*12)+12)
-		next_page=math.ceil(remain/12)
+		next_page=page+1
 
-		next_page = next_page if next_page > 0 else None
+		if next_page *12 > total['COUNT(attraction.id)']:
+			next_page = None
 
 		
 		response_data = Response(json.dumps({
@@ -124,7 +124,7 @@ def get_attraction(attractionId):
 			SELECT JSON_ARRAYAGG(images)
 			FROM attraction_image
 			WHERE attraction_image.attraction_id = attraction.id
-			) AS img
+			) AS images
 			FROM attraction
 			INNER JOIN located ON attraction.id = located.attraction_id
 			INNER JOIN mrt ON located.mrt_id = mrt.id
@@ -135,7 +135,7 @@ def get_attraction(attractionId):
 		if result is None:
 			raise Exception("Attraction id  is not exist")
 
-		result['img'] = json.loads(result['img'])
+		result['images'] = json.loads(result['images'])
 
 		response_data = Response(json.dumps({
 			"data": result ,
