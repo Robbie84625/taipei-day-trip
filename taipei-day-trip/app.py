@@ -7,6 +7,8 @@ app=Flask(__name__)
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 
+app.static_folder = 'static'
+
 db_config= {
     "user": "root",
     "password": "123456789",
