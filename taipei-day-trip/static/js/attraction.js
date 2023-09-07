@@ -111,21 +111,47 @@ let leftIcon= document.getElementById('left__icon');
 let subContainer = document.querySelector('.mrtList__container__sub');
 let rightIcon= document.getElementById('right__icon');
 
+
+
+
 leftIcon.addEventListener("click", function() {
     let currentWidth = subContainer.clientWidth;
-
     let leftWidth = currentWidth * 0.9;
+    
+    let interval = 500;
+    let steps = 10;
 
-    subContainer.scrollLeft -= leftWidth;
+    let step = 0;
+    const scrollInterval = setInterval(function() {
+        if (step < steps) {
+            subContainer.scrollLeft -= leftWidth / steps;
+            step++;
+        } else {
+            clearInterval(scrollInterval); // 停止計時器
+        }
+    }, interval);
 });
+
 
 rightIcon.addEventListener("click", function() {
 
     let currentWidth = subContainer.clientWidth;
-
     let rightWidth = currentWidth * 0.9;
 
-    subContainer.scrollLeft += rightWidth;
+    let interval = 500;
+    let steps = 10;
+
+    let step = 0;
+    
+    const scrollInterval = setInterval(function() {
+        if (step < steps) {
+            subContainer.scrollLeft += rightWidth / steps;
+            step++;
+        } else {
+            clearInterval(scrollInterval); // 停止計時器
+        }
+    }, interval);
+    
 });
 
 let searchButton = document.querySelector(".search__btn");

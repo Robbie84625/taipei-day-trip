@@ -171,8 +171,10 @@ display: flex;
 .mrtList__container__sub{
     width: auto;height:24px;
     overflow: hidden;
+    position: relative;
     white-space: nowrap;
     display: flex;
+
 }
 
 
