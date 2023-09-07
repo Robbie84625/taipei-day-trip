@@ -7,7 +7,8 @@ body {
     background-color: #FFFFFF;
     height: 54px; width: 100%;
     margin-left: auto;margin-right: auto;
-    display: flex; position:fixed;z-index: 9999;
+    display: flex; position:fixed;
+    z-index: 9999;
 }
 
 .header--wide1200{
@@ -44,19 +45,24 @@ body {
 }
 
 .welcome{
-    height: 320px;width: 100%;
-    margin-left: auto;margin-right: auto;
+    height: 374px;width: 100%;
 }
 .welcome__img {
-    width: 100%;height: 320px;
+    margin-left: auto;margin-right: auto;
+    width: 100%;height: 100%;
     background: url('../image/welcome.png') no-repeat center center / cover,linear-gradient(135deg, #AADDEE 0%, #66AABB 100%);
     display: flex;
     flex-direction: column;
 }
 .slogan{
     width: 100%;
-    max-width:1200px; height: 169px;
-    margin: auto;padding: 10px;
+    max-width:1200px; height: 149px;
+    padding: 10px;
+    margin-left: auto;margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    top: calc(50% + 54px);
 }
 .slogan__headline{
     height: 41px;
@@ -133,29 +139,32 @@ padding: 0px 0px 20px 0px;
 margin-left: auto;margin-right: auto;
 justify-content: space-between;
 height: 70px;width: 100%;
-max-width:1170px;
+max-width:1218px;
 background: #FFFFFF;
 display: flex;
 }
 
-.mrtList__leftController{
-    width: 32px;height:50px;
-    padding: 9px 0px 9px 15px;
-}
-.mrtList__rightController{
-    width: 32px;height: 50px;
-    padding: 9px 15px 9px 0px;
-}
+
 .mrtList__controller__icon{
     width:32px;height:32px;
 }
 .mrtList__container{
-    width: calc(100% - 94px);max-width: 1066px;height: 50px;
-    padding: 13px 10px 13px 10px;
+    width: calc(100% - 64px);height: 50px;
+    padding: 13px 0px 13px 0px;
+}
+.mrtList__leftController{
+    width: 32px;height:50px;
+    padding: 9px 0px 9px 0px;
+    text-align: left;
+}
+.mrtList__rightController{
+    width: 32px;height: 50px;
+    padding: 9px 0px 9px 0px;
+    text-align: right;
 }
 @media (max-width: 1200px) {
     .mrtList__container{
-        width: calc(90% - 94px)
+        width: calc(100% - 68px)
     }
 }
 
