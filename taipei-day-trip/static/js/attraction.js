@@ -75,12 +75,26 @@ function mrtList() {
             mrtListContainerItem.textContent=mrt;
 
             mrtListContainerItem.addEventListener("click", function() {
-                console.log(mrt);
+
+                mrtListContainerItem.classList.add("enlarge");
+
+                setTimeout(function() {
+                    mrtListContainerItem.classList.remove("enlarge");
+                }, 200);
+
+
                 let container = document.querySelector(".attraction__container");
                 page=0;
                 searchInput.value = mrt;
                 container.innerHTML = "";
                 loadNextPage();
+            });
+
+            mrtListContainerItem.addEventListener("mouseenter", function() {
+                mrtListContainerItem.style.color = "black"; 
+            });
+            mrtListContainerItem.addEventListener("mouseleave", function() {
+                mrtListContainerItem.style.color = "#666666"; 
 
             });
 
