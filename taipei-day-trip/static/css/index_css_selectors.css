@@ -62,7 +62,7 @@ body {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    top: calc(50% + 54px);
+    top: calc(50% + 24px);
 }
 .slogan__headline{
     height: 41px;
