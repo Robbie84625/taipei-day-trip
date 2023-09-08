@@ -34,35 +34,26 @@ def attractions():
 			INNER JOIN located ON attraction.id = located.attraction_id
 			INNER JOIN mrt ON located.mrt_id = mrt.id
 		""" 
-		query_count= """
-			SELECT COUNT(attraction.id) 
-			FROM attraction
-		"""
+
 		if keyword:
-			cursor.execute( f"{query_data} WHERE attraction.name LIKE %s OR mrt.mrt= %s ORDER BY attraction.id LIMIT %s , %s ;", (f"%{keyword}%",keyword,page*12,12))
+			cursor.execute( f"{query_data} WHERE attraction.name LIKE %s OR mrt.mrt= %s ORDER BY attraction.id LIMIT %s , %s ;", (f"%{keyword}%",keyword,page*12,13))
 			results = cursor.fetchall()
-			for item in results:
+			for item in results[:12]:
 				item['images'] = json.loads(item['images'])
 
-			cursor.execute(f"{query_count} WHERE attraction.name LIKE %s ;",(f"%{keyword}%",))
-			total= cursor.fetchone()
-			
+			next_page=page+1
+			if len(results)<9:
+				next_page=None			
 			
 		else:
-			cursor.execute( f"{query_data} ORDER BY attraction.id LIMIT %s , %s ;", (page*12,12))
+			cursor.execute( f"{query_data} ORDER BY attraction.id LIMIT %s , %s ;", (page*12,13))
 			results = cursor.fetchall()
-			for item in results:
+			for item in results[:12]:
 				item['images'] = json.loads(item['images'])
-
-			cursor.execute(f"{query_count}")
-			total= cursor.fetchone()
 			
-				
-		next_page=page+1
-
-		if next_page *12 > total['COUNT(attraction.id)']:
-			next_page = None
-
+			next_page=page+1
+			if len(results)<9:
+				next_page=None
 		
 		response_data = Response(json.dumps({
 			"data": results ,
@@ -156,14 +147,6 @@ def get_attraction(attractionId):
 		response = Response(response_json, content_type='application/json; charset=utf-8', status=500)
 		return response
 	
-	except ValueError as e:
-		error_message = "An error occurred: " + str(e)
-		response_data = {"error": error_message}
-		response_json = json.dumps(response_data, ensure_ascii=False)
-		response = Response(response_json, content_type='application/json; charset=utf-8', status=404)
-		return response
-	
-
 # 請勿更動
 @app.route("/")
 def index():

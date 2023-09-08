@@ -45,14 +45,13 @@ body {
 }
 
 .welcome{
-    height: 374px;width: 100%;
+    height: 374px;width: 100%;padding-top: 54px;
 }
 .welcome__img {
     margin-left: auto;margin-right: auto;
-    width: 100%;height: 100%;
+    width: 100%;height: 320px;
     background: url('../image/welcome.png') no-repeat center center / cover,linear-gradient(135deg, #AADDEE 0%, #66AABB 100%);
-    display: flex;
-    flex-direction: column;
+    display: flex;flex-direction: column;
 }
 .slogan{
     width: 100%;
@@ -60,9 +59,7 @@ body {
     padding: 10px;
     margin-left: auto;margin-right: auto;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    top: calc(50% + 24px);
+    margin: auto;
 }
 .slogan__headline{
     height: 41px;
@@ -174,7 +171,7 @@ display: flex;
     position: relative;
     white-space: nowrap;
     display: flex;
-
+    scroll-behavior: smooth;
 }
 
 

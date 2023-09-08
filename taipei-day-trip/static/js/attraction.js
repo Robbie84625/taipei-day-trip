@@ -1,5 +1,6 @@
 let page = 0;
 let isLoading = false;
+let lastPage=false;
 
 function loadNextPage() {
     
@@ -11,56 +12,58 @@ function loadNextPage() {
     }).then(function(data) {
         for (let detail of data['data']){
         
-        let attractionItemDiv = document.createElement("div");
-        attractionItemDiv.className = "attraction__item";
+            let attractionItemDiv = document.createElement("div");
+            attractionItemDiv.className = "attraction__item";
 
-        let attractionItemDetailDiv = document.createElement("div");
-        attractionItemDetailDiv.className = "attraction__item__detail";
+            let attractionItemDetailDiv = document.createElement("div");
+            attractionItemDetailDiv.className = "attraction__item__detail";
 
-        let attractionItemDetailTextDiv = document.createElement("div");
-        attractionItemDetailTextDiv.className = "attraction__item__detail__text";
+            let attractionItemDetailTextDiv = document.createElement("div");
+            attractionItemDetailTextDiv.className = "attraction__item__detail__text";
 
 
-        let imageUrl = decodeURIComponent(detail['images'][0]);
-        attractionItemDetailDiv.style.background= `url(${imageUrl}) no-repeat center center / cover`;
-        
-        attractionItemDetailTextDiv.textContent = detail['name'];
-        attractionItemDetailDiv.appendChild(attractionItemDetailTextDiv);
-        
-        attractionItemDiv.appendChild(attractionItemDetailDiv);
+            let imageUrl = decodeURIComponent(detail['images'][0]);
+            attractionItemDetailDiv.style.background= `url(${imageUrl}) no-repeat center center / cover`;
+            
+            attractionItemDetailTextDiv.textContent = detail['name'];
+            attractionItemDetailDiv.appendChild(attractionItemDetailTextDiv);
+            
+            attractionItemDiv.appendChild(attractionItemDetailDiv);
 
-        let attractionItemMrtCategoryDiv = document.createElement("div");
-        attractionItemMrtCategoryDiv.className = "attraction__item__mrtCategory";
+            let attractionItemMrtCategoryDiv = document.createElement("div");
+            attractionItemMrtCategoryDiv.className = "attraction__item__mrtCategory";
 
-        let mrtDiv=document.createElement("div");
-        mrtDiv.className = "attraction__item__mrtCategory__mrt";
+            let mrtDiv=document.createElement("div");
+            mrtDiv.className = "attraction__item__mrtCategory__mrt";
 
-        let categoryDiv=document.createElement("div");
-        categoryDiv.className = "attraction__item__mrtCategory__category";
-        
-        mrtDiv.textContent = detail['mrt'];
-        attractionItemMrtCategoryDiv.appendChild(mrtDiv);
+            let categoryDiv=document.createElement("div");
+            categoryDiv.className = "attraction__item__mrtCategory__category";
+            
+            mrtDiv.textContent = detail['mrt'];
+            attractionItemMrtCategoryDiv.appendChild(mrtDiv);
 
-        categoryDiv.textContent = detail['category'];
-        attractionItemMrtCategoryDiv.appendChild(categoryDiv);
+            categoryDiv.textContent = detail['category'];
+            attractionItemMrtCategoryDiv.appendChild(categoryDiv);
 
-        attractionItemDiv.appendChild(attractionItemMrtCategoryDiv);
+            attractionItemDiv.appendChild(attractionItemMrtCategoryDiv);
 
-        let container = document.querySelector(".attraction__container");
+            let container = document.querySelector(".attraction__container");
 
-        isLoading = false; 
-        
-        container.appendChild(attractionItemDiv);
+            isLoading = false; 
+
+            container.appendChild(attractionItemDiv);
         }
-        console.log(page);
         if(data["nextPage"]!==null){
             page=data["nextPage"];
         }
-        else{
+        if (data["nextPage"]===null){
             page++;
+            lastPage=true
+        }
+        if (lastPage===true){
+            return
         }
     });
-    
 }
 
 function mrtList() {
@@ -118,18 +121,20 @@ leftIcon.addEventListener("click", function() {
     let currentWidth = subContainer.clientWidth;
     let leftWidth = currentWidth * 0.9;
     
-    let interval =5;
-    let steps = 10;
+    subContainer.scrollLeft -= leftWidth;
+    // 暴力解法
+    // let interval =5;
+    // let steps = 10;
 
-    let step = 0;
-    const scrollInterval = setInterval(function() {
-        if (step < steps) {
-            subContainer.scrollLeft -= leftWidth / steps;
-            step++;
-        } else {
-            clearInterval(scrollInterval); // 停止計時器
-        }
-    }, interval);
+    // let step = 0;
+    // const scrollInterval = setInterval(function() {
+    //     if (step < steps) {
+    //         subContainer.scrollLeft -= leftWidth / steps;
+    //         step++;
+    //     } else {
+    //         clearInterval(scrollInterval); // 停止計時器
+    //     }
+    // }, interval);
 });
 
 
@@ -138,20 +143,21 @@ rightIcon.addEventListener("click", function() {
     let currentWidth = subContainer.clientWidth;
     let rightWidth = currentWidth * 0.9;
 
-    let interval = 5;
-    let steps = 10;
+    subContainer.scrollLeft += rightWidth ;
+    // 暴力解法
+    // let interval = 5;
+    // let steps = 10;
 
-    let step = 0;
+    // let step = 0;
     
-    const scrollInterval = setInterval(function() {
-        if (step < steps) {
-            subContainer.scrollLeft += rightWidth / steps;
-            step++;
-        } else {
-            clearInterval(scrollInterval); 
-        }
-    }, interval);
-    
+    // const scrollInterval = setInterval(function() {
+    //     if (step < steps) {
+    //         subContainer.scrollLeft += rightWidth / steps;
+    //         step++;
+    //     } else {
+    //         clearInterval(scrollInterval); 
+    //     }
+    // }, interval);
 });
 
 let searchButton = document.querySelector(".search__btn");
@@ -170,7 +176,7 @@ window.addEventListener("scroll", function () {
     const lastItemBounding = lastItem.getBoundingClientRect();
 
     // 當捲動到底部時觸發載入下一頁
-    if (lastItemBounding.bottom <= window.innerHeight && !isLoading) {
+    if (lastItemBounding.bottom <= window.innerHeight && !isLoading&& lastPage!=true) {
         loadNextPage();
     }
 });
