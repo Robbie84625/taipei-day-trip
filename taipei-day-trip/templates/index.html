@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta charset="utf-8"/>
+    <title>Taipei-Trip-台北一日遊</title>
+    <!-- <link rel="stylesheet" type="text/css" href="index_css_selectors.css"/> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index_css_selectors.css') }}">
+</head>
+<body>
+
+    <div class="header--wide1920">
+        <div class="header--wide1200">
+            <h2 class="header__title">
+                台北一日遊
+            </h2>
+            <div class="header__toolBar">
+                <div class="header__toolBar__item">
+                    預定行程
+                </div>
+                <div class="header__toolBar__item">
+                    登入/註冊
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="welcome">
+        <div class="welcome__img">
+            <div class="slogan">
+                <div class="slogan__headline">輕鬆享受台北一日悠閒</div>
+                <div class="slogan__subtitle">探索每個角落，體驗城市的深度旅遊行程</div>
+                <div class="search">
+                    <div class="search__bar">
+                        <input type="text" class="search__bar__textbox" placeholder="輸入景點名稱查詢" id="searchInput"/>
+                        <div class="search__btn" id="searchButton">
+                            <img src="{{ url_for('static', filename='image/search.png') }}"class="search__btn__icon" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div>
+    
+    <div class="main">
+        <div class="mrtList">
+            <div class="mrtList__leftController">
+                <img src="{{ url_for('static', filename='image/left container.png') }}" class="mrtList__controller__icon" id="left__icon"/>
+            </div>
+                <div class="mrtList__container">
+                    <div class="mrtList__container__sub"></div>
+                </div>
+            <div class="mrtList__rightController">
+                <img src="{{ url_for('static', filename='image/right container.png') }}" class="mrtList__controller__icon"id="right__icon"/>
+            </div>
+        </div>
+        
+        <div class="attraction">
+            <div class="attraction__container">
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer__content">
+            COPYRIGHT © 2021 台北一日遊
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/attraction.js') }}"></script>
+</body>
+</html>
