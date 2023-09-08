@@ -118,7 +118,7 @@ leftIcon.addEventListener("click", function() {
     let currentWidth = subContainer.clientWidth;
     let leftWidth = currentWidth * 0.9;
     
-    let interval = 500;
+    let interval =5;
     let steps = 10;
 
     let step = 0;
@@ -138,7 +138,7 @@ rightIcon.addEventListener("click", function() {
     let currentWidth = subContainer.clientWidth;
     let rightWidth = currentWidth * 0.9;
 
-    let interval = 500;
+    let interval = 5;
     let steps = 10;
 
     let step = 0;
@@ -148,7 +148,7 @@ rightIcon.addEventListener("click", function() {
             subContainer.scrollLeft += rightWidth / steps;
             step++;
         } else {
-            clearInterval(scrollInterval); // 停止計時器
+            clearInterval(scrollInterval); 
         }
     }, interval);
     
