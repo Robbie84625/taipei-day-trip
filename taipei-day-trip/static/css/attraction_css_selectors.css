@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+hr{
+    border: 1px solid #E8E8E8;
+}
+
+.header--wide1920{
+    background-color: #FFFFFF;
+    height: 54px; width: 100%;
+    margin-left: auto;margin-right: auto;
+    display: flex; 
+    display: flex; position:fixed;
+    z-index: 9999;
+}
+
+.header--wide1200{
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 10px;margin-bottom: 10px;
+    margin-left: auto;margin-right: auto;
+    display: flex;justify-content: space-between;
+}
+
+.header__title{
+    width: 150px;height: 34px;
+    margin: 0px;
+    font-weight: 700;font-size: 30px;
+    line-height: 34px;letter-spacing: 0em;
+    color: #448899;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+@media (max-width: 600px) {
+    .header__title {
+        padding-left: 10px;
+    }
+}
+.header__toolBar{
+    width: 175px;height: 34px;
+    display: flex; justify-content: space-between;
+}
+.header__toolBar__item{
+    font-family: 'Noto Sans TC', sans-serif;font-size: 16px;font-weight:normal,500;
+    line-height: 13px;letter-spacing: 0em;
+    display: flex;align-items: center; justify-content: center;
+    padding: 10px;
+    color: #666666;
+}
+
+.main{
+    padding-top: 54px;
+}
+.attractionsHub{
+    margin: 40px auto;
+    max-width: 1170px; 
+    display:flex;
+    grid-gap: 30px;
+    padding: 0 15px; 
+}
+
+.attractionsHub__imgDiv{
+    height: 400px;width:100%;
+    position: relative;opacity: 1;
+}
+
+.attractionsHub__imgDiv__img{
+    height: 100%;width:100%;
+}
+
+
+@media  (max-width: 900px) {
+    .attractionsHub{
+        flex-wrap: wrap;
+        padding: 0px;
+    }
+    .attractionsHub__imgDiv{
+        width:100%;
+        height: 350px;
+        
+    }
+}
+
+.attractionsHub__imgDiv__banner{
+    height: 12px;min-width: 24px;
+    position: absolute;bottom: 10px;
+    text-align: center;
+    left: 50%; transform: translateX(-50%);
+    display: flex;
+}
+
+.attractionsHub__imgDiv__banner__item{
+    width: 12px;
+    height: 12px;
+    Padding:0px 6px 0px 6px;
+}
+
+.attractionsHub__imgDiv__banner__item__icon{
+    width: 10px;height: 10px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+    
+
+.attractionsHub__imgDiv__leftIcon{
+    position: absolute;left: 10px;top: 50%; 
+    transform: translateY(-50%);
+    width: 36px;height: 36px;
+    opacity: 0.75; 
+
+}
+
+.attractionsHub__imgDiv__rightIcon{
+    position: absolute;right: 10px; top: 50%; 
+    transform: translateY(-50%); 
+    width: 36px;height: 36px;
+    opacity: 0.75; 
+}
+.attractionsHub__bookingDiv{
+    width: 100%;
+}
+.attractionsHub__bookingDiv__attractionTittle{
+    height: 33px;width: 100%;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 24px;font-weight: 700;
+    line-height: 24px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+.attractionsHub__bookingDiv__mrtAndCategory{
+    margin-top: 15px;
+    height: 22px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.attractionsHub__bookingDiv__booking{
+    background: #E8E8E8;
+    max-width: 580px;height: 287px;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 15px 0px 0px 20px;
+}
+
+@media  (max-width: 900px) {
+    .attractionsHub__bookingDiv__booking{
+        flex-wrap: wrap;
+        width:calc( 100%-20px); max-width: none;
+    }
+    .attractionsHub__bookingDiv__attractionTittle{
+        margin: 0 10px;
+    }
+    .attractionsHub__bookingDiv__mrtAndCategory{
+        margin: 0 10px;
+    }
+}
+
+.attractionsHub__bookingDiv__booking__tittle{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+    height: 22px
+}
+.attractionsHub__bookingDiv__booking__slogan{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    margin-top: 15px;
+    text-align: left;
+    color: #666666;
+    height: 24px
+}
+.attractionsHub__bookingDiv__booking__date{
+    height: 35px;
+    margin-top: 15px;
+    display: flex;align-items: center;
+
+}
+
+.attractionsHub__bookingDiv__booking__date__text{
+    width: 81px;height: 17px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.attractionsHub__bookingDiv__booking__date__input{
+    margin-left: 5px;
+    width: 193px;height: 31px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;
+}
+
+.attractionsHub__bookingDiv__booking__date__input::-webkit-calendar-picker-indicator {
+    width: 24px;height: 24px;
+}
+
+.attractionsHub__bookingDiv__booking__time{
+    margin-top: 15px;
+    height: 22px;
+    display: flex;align-items: center;
+}
+
+.attractionsHub__bookingDiv__booking__time__text{
+    height: 22px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.btnDiv{
+    width: 87px;height: 22px;
+    margin-left: 5px;
+    display: flex;
+}
+.btnDiv__btn1{
+    width: 18px;height: 18px;
+    margin-left: 5px;
+    border-radius: 50%;
+    background: #448899;
+    border: 2px solid #FFFFFF;
+}
+
+.btnDiv__btn2{
+    width: 18px;height: 18px;
+    margin-left: 5px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 2px solid #FFFFFF;
+}
+.btnDiv__text{
+    margin-left: 4px;
+    width: 48px;height: 16px;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-top: 2px;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.attractionsHub__bookingDiv__cost{
+    margin-top: 15px;
+    height: 22px;
+    display: flex;
+}
+.attractionsHub__bookingDiv__cost__text{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.attractionsHub__bookingDiv__cost__dollar{
+    margin-left: 5px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.attractionsHub__bookingDiv__booking__btn{
+    width: 114px;height: 26px;
+    margin-top: 25px;
+    border-radius: 5px;
+    background-color: #448899;
+    font-family:'Noto Sans TC', sans-serif;
+    font-size: 19px;font-weight: 400;
+    line-height: 16px;letter-spacing: 0em;
+    text-align: center;color:#FFFFFF;
+    Padding:10px 20px 10px 20px;
+}
+
+.hrAttribute{
+    margin: 40px auto;max-width: 1200px;
+}
+@media  (max-width: 1200px) {
+    .hrAttribute{
+        max-width:calc(100% - 20px);
+        transform: rotate(0deg);
+    }
+}
+
+.attractionInformation{
+    max-width: 1180px;
+    padding: 10px 10px 0px 10px;
+    margin: 0 auto;
+}
+
+.attractionInformation__description{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 400;
+    line-height: 23px;letter-spacing: 0em;
+    text-align: left;color: #666666;
+}
+
+.attractionInformation__addressTittle{
+    margin-top: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 23px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+.attractionInformation__address{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 400;
+    line-height: 23px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.attractionInformation__transportTittle{
+    margin-top: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 23px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.attractionInformation__description__content{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 400;
+    line-height: 23px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.footer {
+    margin-top: 40px;
+    background: #757575;
+    padding: 40px 20px; 
+}
+
+.footer__content{
+    width: 234px;height: 14px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: center;
+    color: #FFFFFF;
+    display: flex;justify-content: center;align-items: center;
+    margin: auto;
+}
