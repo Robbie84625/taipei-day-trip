@@ -22,7 +22,7 @@ body {
 .header__title{
     width: 150px;height: 34px;
     margin: 0px;
-    font-weight: bold, 700;font-size: 30px;
+    font-weight: 700;font-size: 30px;
     line-height: 34px;letter-spacing: 0em;
     color: #448899;
     font-family: 'Noto Sans TC', sans-serif;

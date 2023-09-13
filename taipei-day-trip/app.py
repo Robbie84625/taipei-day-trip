@@ -41,9 +41,10 @@ def attractions():
 			for item in results[:12]:
 				item['images'] = json.loads(item['images'])
 
-			next_page=page+1
-			if len(results)<9:
-				next_page=None			
+			if len(results)<13:
+				next_page=None
+			else:
+				next_page=page+1			
 			
 		else:
 			cursor.execute( f"{query_data} ORDER BY attraction.id LIMIT %s , %s ;", (page*12,13))
@@ -51,12 +52,13 @@ def attractions():
 			for item in results[:12]:
 				item['images'] = json.loads(item['images'])
 			
-			next_page=page+1
-			if len(results)<9:
+			if len(results)<13:
 				next_page=None
+			else:
+				next_page=page+1
 		
 		response_data = Response(json.dumps({
-			"data": results ,
+			"data": results[:12] ,
 			"nextPage": next_page
 		}, ensure_ascii=False), content_type='application/json; charset=utf-8')
 

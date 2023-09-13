@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta charset="utf-8"/>
+    <title>台北一日遊景點</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/attraction_css_selectors.css') }}">
+</head>
+<body>
+    <div class="header--wide1920">
+        <div class="header--wide1200">
+            <h2 class="header__title">
+                台北一日遊
+            </h2>
+            <div class="header__toolBar">
+                <div class="header__toolBar__item">
+                    預定行程
+                </div>
+                <div class="header__toolBar__item">
+                    登入/註冊
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <hr/>
+        <div class="attractionsHub">
+            <div class="attractionsHub__imgDiv">
+                <img src="{{ url_for('static', filename='image/btn_leftArrow.png') }}" alt="左图标" class="attractionsHub__imgDiv__leftIcon" id="leftIcon"/>
+                <img src="{{ url_for('static', filename='image/btn_rightArrow.png') }}" alt="右图标"class="attractionsHub__imgDiv__rightIcon" id="rightIcon"/>
+                <div class="attractionsHub__imgDiv__banner">
+                    
+                </div>
+            </div>
+            <div class="attractionsHub__bookingDiv">
+                <div class="attractionsHub__bookingDiv__attractionTittle">
+
+                </div>
+                <div class="attractionsHub__bookingDiv__mrtAndCategory">
+
+                </div>
+                <div class="attractionsHub__bookingDiv__booking">
+                    <div class="attractionsHub__bookingDiv__booking__tittle">
+                        訂購導覽行程
+                    </div>
+                    <div class="attractionsHub__bookingDiv__booking__slogan">
+                        以此景點為中心的一日行程，帶您探索城市角落故事
+                    </div>
+                    <div class="attractionsHub__bookingDiv__booking__date">
+                        <label class="attractionsHub__bookingDiv__booking__date__text">選擇日期：</label>
+                        <input type="date" placeholder="yyyy-mm-dd" class="attractionsHub__bookingDiv__booking__date__input"/>
+                    </div>
+                    <div class="attractionsHub__bookingDiv__booking__time">
+                        <div class="attractionsHub__bookingDiv__booking__time__text">選擇時間：</div>
+                        <div class="btnDiv" >
+                            <div class="btnDiv__btn1">
+
+                            </div>
+                            <div class="btnDiv__text">
+                                上半天
+                            </div>
+                        </div>
+                        <div class="btnDiv" >
+                            <div class="btnDiv__btn2">
+                                
+                            </div>
+                            <div class="btnDiv__text">
+                                下半天
+                            </div>
+                        </div>
+                    </div>
+                    <div class="attractionsHub__bookingDiv__cost">
+                        <div class="attractionsHub__bookingDiv__cost__text">
+                            導覽費用：
+                        </div>
+                        <div class="attractionsHub__bookingDiv__cost__dollar">
+                            新台幣 2000 元
+                        </div>
+                    </div>
+                    <div class="attractionsHub__bookingDiv__booking__btn">
+                        開始預約行程
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class=" hrAttribute"/>
+        <div class="attractionInformation">
+            <div class="attractionInformation__description">
+
+            </div>
+            <div class="attractionInformation__description">
+
+            </div>
+            <div class="attractionInformation__addressTittle">
+                景點地址：
+            </div>
+            <div class="attractionInformation__address">
+
+            </div>
+            <div class="attractionInformation__transportTittle">
+                交通方式：
+            </div>
+            <div class="attractionInformation__description__content">
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer__content">
+            COPYRIGHT © 2021 台北一日遊
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/attraction.js') }}"></script>
+</body>
+</html>
