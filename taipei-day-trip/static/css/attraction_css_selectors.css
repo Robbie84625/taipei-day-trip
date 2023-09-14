@@ -10,6 +10,7 @@ hr{
     background-color: #E8E8E8;
     height: 1px;
     border: 0px;
+    margin: 0px;
 }
 
 
@@ -64,6 +65,11 @@ hr{
     display:flex;
     grid-gap: 30px;
     padding: 0 15px; 
+}
+@media  (max-width: 900px) {
+    .attractionsHub{
+        margin-top:0px;
+    }
 }
 
 .attractionsHub__imgDiv{
@@ -159,12 +165,10 @@ hr{
         /* height: 270px; */
     }
     .attractionsHub__bookingDiv__booking{
-        flex-wrap: wrap;
+        flex-wrap: wrap;margin-top: 0px;
         width:calc( 100%-20px); max-width: none;
     }
-    .attractionsHub__bookingDiv__attractionTittle{
-        margin: 20px  0px 0px 0px;
-    }
+
     .attractionsHub__bookingDiv__mrtAndCategory{
         margin: 20px 0px 0px 0px;
     }
@@ -298,7 +302,7 @@ hr{
     display: flex;align-items: center; justify-content: center;
 }
 
-.hrAttribute{
+.hrMiddle{
     margin: 40px auto;max-width: 1200px;
 }
 @media  (max-width: 1200px) {
