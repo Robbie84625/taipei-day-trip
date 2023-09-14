@@ -156,6 +156,7 @@ hr{
 @media  (max-width: 900px) {
     .attractionsHub__bookingDiv{
         margin:0px 10px 0px 10px;
+        /* height: 270px; */
     }
     .attractionsHub__bookingDiv__booking{
         flex-wrap: wrap;
