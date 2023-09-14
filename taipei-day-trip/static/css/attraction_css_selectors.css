@@ -7,8 +7,12 @@ body {
 }
 
 hr{
-    border: 1px solid #E8E8E8;
+    background-color: #E8E8E8;
+    height: 1px;
+    border: 0px;
+    margin: 0px;
 }
+
 
 .header--wide1920{
     background-color: #FFFFFF;
@@ -62,14 +66,19 @@ hr{
     grid-gap: 30px;
     padding: 0 15px; 
 }
+@media  (max-width: 900px) {
+    .attractionsHub{
+        margin-top:0px;
+    }
+}
 
 .attractionsHub__imgDiv{
     height: 400px;width:100%;
-    position: relative;opacity: 1;
+    position: relative;opacity: 1; 
 }
 
 .attractionsHub__imgDiv__img{
-    height: 100%;width:100%;
+    height: 100%;width:100%;object-fit: cover;
 }
 
 
@@ -147,19 +156,21 @@ hr{
     max-width: 580px;height: 287px;
     margin-top: 20px;
     border-radius: 5px;
-    padding: 15px 0px 0px 20px;
+    padding: 15px 20px 0px 20px;
 }
 
 @media  (max-width: 900px) {
+    .attractionsHub__bookingDiv{
+        margin:0px 10px 0px 10px;
+        /* height: 270px; */
+    }
     .attractionsHub__bookingDiv__booking{
-        flex-wrap: wrap;
+        flex-wrap: wrap;margin-top: 0px;
         width:calc( 100%-20px); max-width: none;
     }
-    .attractionsHub__bookingDiv__attractionTittle{
-        margin: 0 10px;
-    }
+
     .attractionsHub__bookingDiv__mrtAndCategory{
-        margin: 0 10px;
+        margin: 20px 0px 0px 0px;
     }
 }
 
@@ -178,8 +189,9 @@ hr{
     margin-top: 15px;
     text-align: left;
     color: #666666;
-    height: 24px
+    line-height: 23px;
 }
+
 .attractionsHub__bookingDiv__booking__date{
     height: 35px;
     margin-top: 15px;
@@ -198,7 +210,7 @@ hr{
 
 .attractionsHub__bookingDiv__booking__date__input{
     margin-left: 5px;
-    width: 193px;height: 31px;
+    width: 185px;height: 31px;
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 16px;font-weight: 500;
     line-height: 13px;letter-spacing: 0em;
@@ -284,12 +296,13 @@ hr{
     background-color: #448899;
     font-family:'Noto Sans TC', sans-serif;
     font-size: 19px;font-weight: 400;
-    line-height: 16px;letter-spacing: 0em;
+    line-height: 26px;letter-spacing: 0em;
     text-align: center;color:#FFFFFF;
-    Padding:10px 20px 10px 20px;
+    padding:5px 20px 5px 20px;
+    display: flex;align-items: center; justify-content: center;
 }
 
-.hrAttribute{
+.hrMiddle{
     margin: 40px auto;max-width: 1200px;
 }
 @media  (max-width: 1200px) {
