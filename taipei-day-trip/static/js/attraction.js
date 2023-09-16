@@ -29,17 +29,23 @@ async function main(){
         attractionImg.src = data['images'][i];
         attractionImg.id="attraction"+i;
 
+        let defaultImg = document.querySelector(".loadGIF");
+        attractionImg.onload = () => {
+            defaultImg.style.display = "none";
+        };
+
+        
         let bannerItem = document.createElement("div");
         bannerItem.className = "attractionsHub__imgDiv__banner__item";
         let bannerItemIcon = document.createElement("div");
         bannerItemIcon.className = "attractionsHub__imgDiv__banner__item__icon";
         bannerItemIcon.id="icon"+i;
+
         if(index==i){
             bannerItemIcon.style.background='#000000';
-            attractionImg.hidden = false;
         }
         else{
-            attractionImg.hidden = true;
+            attractionImg.style.opacity = 0;
         }
         
         bannerItem.appendChild(bannerItemIcon);
@@ -75,9 +81,15 @@ leftIcon.addEventListener("click", async function () {
     let newImgIndex = document.getElementById("attraction"+index);
     let newIcon=document.getElementById("icon"+index);
 
-    oldImgIndex.hidden=true;
-    newImgIndex.hidden=false;
+    newImgIndex.style.transition = "opacity 1s ease-in-out"; 
     
+    newImgIndex.style.opacity = 1;
+
+
+    oldImgIndex.style.opacity = 0;
+    newImgIndex.style.zIndex = 2;
+
+
     oldIcon.style.background='#FFFFFF';
     newIcon.style.background='#000000';
 });
@@ -95,8 +107,12 @@ rightIcon.addEventListener("click", async function () {
     let newImgIndex = document.getElementById("attraction"+index);
     let newIcon=document.getElementById("icon"+index);
 
-    oldImgIndex.hidden=true;
-    newImgIndex.hidden=false;
+
+    newImgIndex.style.transition = "opacity 1s ease-in-out"; 
+    
+    newImgIndex.style.opacity = 1;
+
+    oldImgIndex.style.opacity = 0;
 
     oldIcon.style.background='#FFFFFF';
     newIcon.style.background='#000000';

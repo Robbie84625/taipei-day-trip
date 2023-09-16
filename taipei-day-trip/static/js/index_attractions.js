@@ -20,10 +20,16 @@ function loadNextPage() {
             let attractionItemDetailTextDiv = document.createElement("div");
             attractionItemDetailTextDiv.className = "attraction__item__detail__text";
 
-
             let imageUrl = decodeURIComponent(detail['images'][0]);
-            attractionItemDetailDiv.style.background= `url(${imageUrl}) no-repeat center center / cover`;
-            
+            attractionItemDetailDiv.style.background = `url(${imageUrl}) no-repeat center center / cover`;
+
+            let image = new Image();
+            image.src=imageUrl
+
+            image.onload = function() {
+                attractionItemDiv.style.background = "none";
+            };
+
             attractionItemDetailTextDiv.textContent = detail['name'];
             attractionItemDetailDiv.appendChild(attractionItemDetailTextDiv);
             
