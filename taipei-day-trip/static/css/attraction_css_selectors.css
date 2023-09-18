@@ -74,11 +74,20 @@ hr{
 
 .attractionsHub__imgDiv{
     height: 400px;width:100%;
-    position: relative;opacity: 1; 
+    position: relative;opacity: 1;
 }
+
 
 .attractionsHub__imgDiv__img{
     height: 100%;width:100%;object-fit: cover;
+    position: absolute;
+    opacity: 1; transition: opacity 1s ease-in-out 0s; display: block; z-index: 2;
+}
+
+.loadGIF{
+    height: 100%;width:100%;object-fit: cover;
+    position: absolute;
+    opacity: 1; transition: opacity 1s ease-in-out 0s; display: block; z-index: 2;
 }
 
 
@@ -99,7 +108,7 @@ hr{
     position: absolute;bottom: 10px;
     text-align: center;
     left: 50%; transform: translateX(-50%);
-    display: flex;
+    display: flex;z-index: 3;
 }
 
 .attractionsHub__imgDiv__banner__item{
@@ -120,7 +129,7 @@ hr{
     position: absolute;left: 10px;top: 50%; 
     transform: translateY(-50%);
     width: 36px;height: 36px;
-    opacity: 0.75; 
+    opacity: 0.75; z-index: 3;
 
 }
 
@@ -128,7 +137,7 @@ hr{
     position: absolute;right: 10px; top: 50%; 
     transform: translateY(-50%); 
     width: 36px;height: 36px;
-    opacity: 0.75; 
+    opacity: 0.75; z-index: 3;
 }
 .attractionsHub__bookingDiv{
     width: 100%;
