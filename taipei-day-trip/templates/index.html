@@ -7,6 +7,34 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index_css_selectors.css') }}">
 </head>
 <body>
+    <div class="dialogMask">
+
+    </div>
+    <dialog class="auth" id="login">
+        <div class="auth__drcoratorBar"></div>
+        <div class="auth__main" id="loginMain">
+            <img src="{{url_for('static', filename='image/icon_close.png')}}" alt="離開" class="auth__main__closeIcon" id="closeLogin"/>
+            <div class="auth__main__tittle">登入會員帳號</div>
+            <input type="text" class="auth__main__input" style="margin-top: 15px;" placeholder="輸入電子信箱" id="signInEmail"/>
+            <input type="password" class="auth__main__input" style="margin-top: 10px;" placeholder="輸入密碼" id="signInPassword"/>
+            <div class="auth__main__button" id="signInButton">登入帳戶</div>
+            <div class="auth__main__statusMessage" id="loginMessage"></div>
+            <div class="auth__main__statusChange" id="toSignUp">還沒有帳戶？點此註冊</div>
+        </div>
+    </dialog>
+    <dialog class="auth" id="signUp">
+        <div class="auth__drcoratorBar"></div>
+        <div class="auth__main"  id="signUpMain">
+            <img src="{{url_for('static', filename='image/icon_close.png')}}" alt="離開" class="auth__main__closeIcon" id="closeSignUp"/>
+            <div class="auth__main__tittle">註冊會員帳號</div>
+            <input type="text" class="auth__main__input" style="margin-top: 15px;" placeholder="輸入姓名" id="signUpName"/>
+            <input type="text" class="auth__main__input" style="margin-top: 10px;" placeholder="輸入電子信箱" id="signUpEmail"/>
+            <input type="password" class="auth__main__input" style="margin-top: 10px;" placeholder="輸入密碼" id="signUpPassword"/>
+            <div class="auth__main__button" id="signUpButton">註冊新帳戶</div>
+            <div class="auth__main__statusMessage" id="signUpMessage"></div>
+            <div class="auth__main__statusChange" id="toSignIn">已經有帳戶？點此登入</div>
+        </div>
+    </dialog>
 
     <div class="header--wide1920">
         <div class="header--wide1200">
@@ -17,8 +45,11 @@
                 <div class="header__toolBar__item">
                     預定行程
                 </div>
-                <div class="header__toolBar__item">
+                <div class="header__toolBar__item" id="auth">
                     登入/註冊
+                </div>
+                <div class="header__toolBar__item" id="signOut">
+                    登出系統
                 </div>
             </div>
         </div>
@@ -65,8 +96,7 @@
             COPYRIGHT © 2021 台北一日遊
         </div>
     </div>
-
-
     <script src="{{ url_for('static', filename='js/index_attractions.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/authSystem.js') }}"></script> -->
 </body>
 </html>
