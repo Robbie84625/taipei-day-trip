@@ -176,7 +176,6 @@ def signIn():
 @app.route("/api/user/auth",methods=['GET'])
 def checkSignIn():
 	authorization_header = request.headers.get('Authorization')
-	print(authorization_header)
 	if not authorization_header:
 		return jsonify({'message': '未登入'}), 405
 
