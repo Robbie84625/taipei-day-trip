@@ -220,7 +220,7 @@ document.getElementById("signInButton").addEventListener("click", function() {
     let email = document.getElementById("signInEmail").value;
     let password = document.getElementById("signInPassword").value;
 
-    let data = {
+    let meberData = {
         email: email,
         password: password
     };
@@ -230,12 +230,12 @@ document.getElementById("signInButton").addEventListener("click", function() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(meberData)
     }).then(response => {
         if (response.ok) {
             window.location.reload();
-            return response.json().then(data => {
-                let jwtToken = data.token;
+            return response.json().then(responseData => {
+                let jwtToken = responseData .token;
                 localStorage.setItem("token", jwtToken);
             });
         } 
