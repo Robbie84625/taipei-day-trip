@@ -1,5 +1,4 @@
 from flask import *
-from flask_cors import CORS
 from mysql.connector import pooling
 import json
 import math
