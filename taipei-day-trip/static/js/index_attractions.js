@@ -9,8 +9,8 @@ function loadNextPage() {
     fetch(`/api/attractions?page=${page}&keyword=${keyword}`).then(function(response) {
     return response.json();
     }).then(function(data) {
+        console.log(1,data)
         for (let detail of data['data']){
-        
             let attractionItemDiv = document.createElement("div");
             attractionItemDiv.className = "attraction__item";
 
@@ -121,7 +121,7 @@ function mrtList() {
     })
 
 }
-mrtList()
+
 
 let leftIcon= document.getElementById('left__icon');
 let subContainer = document.querySelector('.mrtList__container__sub');
@@ -193,6 +193,9 @@ window.addEventListener("scroll", function () {
         loadNextPage();
     }
 });
-
+window.onload = function() {
+    loadNextPage();
+    mrtList()
+};
 
 

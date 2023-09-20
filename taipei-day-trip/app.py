@@ -1,4 +1,5 @@
 from flask import *
+from flask_cors import CORS
 from mysql.connector import pooling
 import json
 import math
@@ -157,14 +158,15 @@ def signIn():
 	try:
 		data = request.get_json()
 		
-		connection = connection_pool.get_connection()
-		cursor = connection.cursor(dictionary=True)
-		cursor.execute("SELECT * FROM member WHERE email=%s AND password=%s",(data['email'],data['password']))
-		result = cursor.fetchone()
+		with connection_pool.get_connection() as connection:
+			with connection.cursor(dictionary=True) as cursor:
+				cursor.execute("SELECT * FROM member WHERE email=%s AND password=%s", (data['email'], data['password']))
+				result = cursor.fetchone()
 
 		if result!=None:
-			expiration_time = datetime.utcnow() + timedelta(days=7)
-			encoded_jwt = jwt.encode({"data": result, "exp": expiration_time}, "secret", algorithm="HS256")
+			# expiration_time = datetime.utcnow() + timedelta(days=7)
+			# encoded_jwt = jwt.encode({"data": result, "exp": expiration_time}, "secret", algorithm="HS256")
+			encoded_jwt = jwt.encode({"data": result}, "secret", algorithm="HS256")
 			return jsonify({"token": encoded_jwt}), 200
 		else:
 			return jsonify({"error": True,"message": "帳號密碼錯誤"}), 400
@@ -173,22 +175,24 @@ def signIn():
 		error_message = "An error occurred: {}".format(e)
 		return jsonify({"error": True,"message":error_message}), 500
 
-@app.route("/api/user/auth",methods=['GET'])
+@app.route("/api/user/auth", methods=['GET'])
 def checkSignIn():
-	authorization_header = request.headers.get('Authorization')
-	if not authorization_header:
-		return jsonify({'message': '未登入'}), 405
+    authorization_header = request.headers.get('Authorization')
+    if not authorization_header:
+        return jsonify({'message': '未登入'}), 405
 
-	jwt_token = authorization_header.replace('Bearer ', '')
+    jwt_token = authorization_header.replace('Bearer ', '')
 
-	try:
-		decoded_data = jwt.decode(jwt_token, "secret", algorithms="HS256")
-		jwtData = {'data': decoded_data['data']}
-		return jsonify(jwtData), 200                  
-	except jwt.ExpiredSignatureError:
-		return jsonify({'message': '令牌過期'}), 401
-	except jwt.InvalidTokenError:
-		return jsonify({'message': '無效的令牌'}), 401
+    try:
+        decoded_data = jwt.decode(jwt_token, "secret", algorithms="HS256")
+        jwtData = {'data': decoded_data['data']}
+        return jsonify(jwtData), 200
+    except jwt.ExpiredSignatureError:
+        return jsonify({'message': '令牌過期'}), 401
+    except jwt.InvalidTokenError:
+        return jsonify({'message': '無效的令牌'}), 401
+    except Exception as e:
+        return jsonify({'message': '解码失败', 'error': str(e)}), 500
 
 @app.route("/api/user",methods=['POST'])
 def SignUp():
