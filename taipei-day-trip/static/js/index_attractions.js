@@ -270,8 +270,7 @@ document.getElementById("signInButton").addEventListener("click", function() {
     })
 });
 
-
-document.addEventListener('DOMContentLoaded', function() {
+window.onload = function() {
     let jwtToken = localStorage.getItem("token");
     fetch('/api/user/auth', {
         method: 'GET',
@@ -280,17 +279,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }).then(response => {
         if (response.ok) {
-            signOut.style.display='block';
-            auth.style.display='none';
-        }
-        else{
+            signOut.style.display = 'block';
+            auth.style.display = 'none';
+        } else {
             return response.json().then(errorData => {
-                signOut.style.display='none';
-                auth.style.display='block';
-            })
+                signOut.style.display = 'none';
+                auth.style.display = 'block';
+            });
         }
-    })
-});
+    });
+}
 
 let toSignUp=document.getElementById("toSignUp")
 let signUp=document.getElementById("signUp")
