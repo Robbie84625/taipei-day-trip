@@ -220,7 +220,7 @@ document.getElementById("signInButton").addEventListener("click", function() {
     let email = document.getElementById("signInEmail").value;
     let password = document.getElementById("signInPassword").value;
 
-    let meberData = {
+    let memberData = {
         email: email,
         password: password
     };
@@ -230,7 +230,7 @@ document.getElementById("signInButton").addEventListener("click", function() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(meberData)
+        body: JSON.stringify(memberData)
     }).then(response => {
         if (response.ok) {
             window.location.reload();
