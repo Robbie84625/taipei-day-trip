@@ -176,19 +176,20 @@ def signIn():
 @app.route("/api/user/auth",methods=['GET'])
 def checkSignIn():
 	authorization_header = request.headers.get('Authorization')
+	print(authorization_header)
 	if not authorization_header:
-		return jsonify({'message': '未登入'}), 401
+		return jsonify({'message': '未登入'}), 405
 
 	jwt_token = authorization_header.replace('Bearer ', '')
 
-	try:
-		decoded_data = jwt.decode(jwt_token, "secret", algorithms="HS256")
-		data = {'data': decoded_data['data']}
-		return jsonify(data), 200                  
-	except jwt.ExpiredSignatureError:
-		return jsonify({'message': '令牌過期'}), 401
-	except jwt.InvalidTokenError:
-		return jsonify({'message': '無效的令牌'}), 401
+	# try:
+	decoded_data = jwt.decode(jwt_token, "secret", algorithms="HS256")
+	jwtData = {'data': decoded_data['data']}
+	return jsonify(jwtData), 200                  
+	# except jwt.ExpiredSignatureError:
+	# 	return jsonify({'message': '令牌過期'}), 401
+	# except jwt.InvalidTokenError:
+	# 	return jsonify({'message': '無效的令牌'}), 401
 
 @app.route("/api/user",methods=['POST'])
 def SignUp():
