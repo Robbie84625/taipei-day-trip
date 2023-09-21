@@ -199,6 +199,8 @@ def SignUp():
 	connection = connection_pool.get_connection()
 	cursor = connection.cursor(dictionary=True)
 	cursor.execute("SELECT email FROM member WHERE email=%s",(data['email'],))
+	cursor.close()
+	connection.close()
 	result = cursor.fetchone()
 
 	if result!=None:
@@ -206,9 +208,11 @@ def SignUp():
 	else:
 		cursor.execute("INSERT INTO member(name, email, password) VALUES (%s, %s, %s)", (data['name'], data['email'], data['password']))
 		connection.commit()
+		cursor.close()
+		connection.close()
 		return jsonify({"ok": True}), 200
 	
-	connection.close()
+	
 
 	
 
