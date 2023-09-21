@@ -140,5 +140,5 @@ home.addEventListener("click", function() {
     window.location.href = '/';
 });
 
-main();
+window.onload = main();
 

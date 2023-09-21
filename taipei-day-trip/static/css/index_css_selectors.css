@@ -3,12 +3,102 @@ body {
     padding: 0px;
 }
 
+.dialogMask{
+    width: 100%; height: 100%;
+    position: fixed;
+    opacity: 0.25;background: #000000;
+    z-index: 5;
+    display: none;
+}
+
+.auth{
+    width: 340px;
+    border-radius: 6px;overflow: hidden;
+    position: fixed;
+    top: 80px;
+    padding: 0px;border: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 60px 0px #AAAAAA;
+    z-index: 6;
+}
+
+.auth__drcoratorBar{
+    width: 340px;height: 10px;
+    background: linear-gradient(270deg, #337788 0%, #66AABB 100%);
+}
+
+.auth__main{
+    width: 310px;
+    margin: 15px;
+    position: relative;
+}
+
+.auth__main__closeIcon{
+    position: absolute;
+    top: 0;right: 0;
+}
+
+.auth__main__tittle{
+    width: 310px;height: 27px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 24px;font-weight: 700;
+    line-height: 24px;letter-spacing: 0em;
+    text-align: center;
+    color: #666666;
+
+}
+
+.auth__main__input{
+    width: 278px;height: 15px;
+    padding: 15px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    color: #757575;
+    border: 1px solid #CCCCCC;border-radius: 5px;
+    background: #FFFFFF;
+    text-align: left;
+}
+
+.auth__main__button{
+    width: 270px;height: 27px;
+    margin-top: 10px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    background: #448899;
+    color: #FFFFFF;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 19px;font-weight: 400;
+    line-height: 16px;letter-spacing: 0em;
+    text-align: center;
+    display: flex;align-items: center;justify-content: center;
+}
+
+.auth__main__statusMessage{
+    height: 22px;margin-top: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: center;
+    color: #ff0000;display: none;
+}
+
+.auth__main__statusChange{
+    width: 310px;height: 22px;margin-top: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: center;
+    color: #666666;
+}
+
+
 .header--wide1920{
     background-color: #FFFFFF;
     height: 54px; width: 100%;
     margin-left: auto;margin-right: auto;
     display: flex; position:fixed;
-    z-index: 9999;
+    z-index: 4;
 }
 
 .header--wide1200{
@@ -273,4 +363,8 @@ display: flex;
 .enlarge {
     transform: scale(1.05);
     transition: transform 0.2s; 
+}
+
+#signOut{
+    display: none;
 }
