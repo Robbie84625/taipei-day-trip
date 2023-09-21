@@ -199,13 +199,17 @@ def SignUp():
 	connection = connection_pool.get_connection()
 	cursor = connection.cursor(dictionary=True)
 	cursor.execute("SELECT email FROM member WHERE email=%s",(data['email'],))
+	result = cursor.fetchone()
+
 	cursor.close()
 	connection.close()
-	result = cursor.fetchone()
+	
 
 	if result!=None:
 		return jsonify({"error": True, "message": "註冊失敗，重複的 Email 或其他原因"}), 400
 	else:
+		connection = connection_pool.get_connection()
+		cursor = connection.cursor(dictionary=True)
 		cursor.execute("INSERT INTO member(name, email, password) VALUES (%s, %s, %s)", (data['name'], data['email'], data['password']))
 		connection.commit()
 		cursor.close()

@@ -57,7 +57,6 @@ document.getElementById("signInButton").addEventListener("click", function() {
                     errorMessage = errorData.message;
                 }
                 let loginMessage=document.getElementById("loginMessage") 
-
                 loginMessage.textContent = errorMessage; 
                 loginMessage.style.display='block';
 
@@ -157,6 +156,7 @@ document.getElementById("signUpButton").addEventListener("click", function() {
         passwordId.value = "";
     }
     else{
+        console.log(data)
         fetch('/api/user', {
             method: 'POST',
             headers: {
@@ -175,7 +175,6 @@ document.getElementById("signUpButton").addEventListener("click", function() {
                     }
                 else{
                     return response.json().then(errorData => {
-                        
                         errorMessage = errorData.message;
 
                         signUpMessage.textContent = errorMessage;

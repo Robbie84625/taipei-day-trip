@@ -9,7 +9,6 @@ function loadNextPage() {
     fetch(`/api/attractions?page=${page}&keyword=${keyword}`).then(function(response) {
     return response.json();
     }).then(function(data) {
-        console.log(1,data)
         for (let detail of data['data']){
             let attractionItemDiv = document.createElement("div");
             attractionItemDiv.className = "attraction__item";
