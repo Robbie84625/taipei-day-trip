@@ -163,8 +163,8 @@ def signIn():
 				result = cursor.fetchone()
 
 		if result!=None:
-			# expiration_time = datetime.utcnow() + timedelta(days=7)
-			# encoded_jwt = jwt.encode({"data": result, "exp": expiration_time}, "secret", algorithm="HS256")
+			expiration_time = datetime.utcnow() + timedelta(days=7)
+			encoded_jwt = jwt.encode({"data": result, "exp": expiration_time}, "secret", algorithm="HS256")
 			encoded_jwt = jwt.encode({"data": result}, "secret", algorithm="HS256")
 			return jsonify({"token": encoded_jwt}), 200
 		else:
