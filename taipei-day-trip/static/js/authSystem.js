@@ -2,7 +2,9 @@ let login=document.getElementById("login")
 let dialogMask=document.querySelector(".dialogMask")
 
 document.getElementById('auth').addEventListener("click", function() {
-    login.open = true;
+    login.show();
+    login.style.top = "80px";
+    signUp.style.top = "80px";
     dialogMask.style.display = 'block';
 })
 
@@ -16,8 +18,11 @@ document.getElementById("closeLogin").addEventListener("click", function() {
 
     let loginMessage=document.getElementById("loginMessage")
     loginMessage.style.display = 'none';
-
-    login.close();
+    signUp.style.top = "-300px";
+    login.style.top = "-300px";
+    setTimeout(function() {
+        login.close();
+    }, 300); 
 })
 
 document.getElementById("signInButton").addEventListener("click", function() {
@@ -63,11 +68,6 @@ document.getElementById("signInButton").addEventListener("click", function() {
                 emailId.value = "";
                 passwordId.value = "";
 
-                let loginMain = document.getElementById('loginMain');
-                loginMain.addEventListener('click', function() {
-                        loginMessage.style.display='none';
-                });
-                
             });
         }
     })
@@ -98,7 +98,7 @@ let signUp=document.getElementById("signUp")
 
 toSignUp.addEventListener("click",  function() {
     login.close();
-    signUp.open = true;
+    signUp.show();
 });
 
 document.getElementById("closeSignUp").addEventListener("click", function() {
@@ -115,7 +115,11 @@ document.getElementById("closeSignUp").addEventListener("click", function() {
     let signUpMessage=document.getElementById("signUpMessage")
     signUpMessage.style.display = 'none';
 
-    signUp.close();
+    login.style.top = "-300px";
+    signUp.style.top = "-300px";
+    setTimeout(function() {
+        signUp.close();
+    }, 300); 
 })
 
 document.getElementById("signUpButton").addEventListener("click", function() {
@@ -189,21 +193,13 @@ document.getElementById("signUpButton").addEventListener("click", function() {
                 }
         })
     }
-
-    let signUpMain = document.getElementById('signUpMain');
-    signUpMain.addEventListener('click', function(event) {
-        if (event.target.id !== "signUpButton") {
-            signUpMessage.style.display='none';
-        }
-    });
-    
 })
 let toSignIn = document.getElementById("toSignIn")
 
 
 toSignIn.addEventListener("click",  function() {
     signUp.close();
-    login.open = true;
+    login.show();
 
     let signUpMessage=document.getElementById("signUpMessage") 
     signUpMessage.style.display = 'none';
@@ -215,3 +211,4 @@ signOut.addEventListener("click",  function() {
     localStorage.removeItem("token");
     window.location.reload();
 });
+
