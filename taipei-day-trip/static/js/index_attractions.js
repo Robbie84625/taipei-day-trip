@@ -83,6 +83,7 @@ function mrtList() {
     fetch('/api/mrts').then(function(response) {
         return response.json();
     }).then(function(data) {
+        console.log(data)
         for (let mrt of data['data']){
             let mrtListContainerItem = document.createElement("div");
             mrtListContainerItem.className = "mrtList__container__sub__item";
@@ -192,9 +193,9 @@ window.addEventListener("scroll", function () {
         loadNextPage();
     }
 });
-window.onload = function() {
-    loadNextPage();
-    mrtList()
-};
+
+loadNextPage();
+mrtList()
+
 
 
