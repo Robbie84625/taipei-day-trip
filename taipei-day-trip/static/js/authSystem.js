@@ -230,7 +230,13 @@ document.querySelector(".header__toolBar__item").addEventListener("click",  func
         window.location.href = '/booking';
     }
     else{
-        window.location.href = '/';
+        let login=document.getElementById("login")
+        let dialogMask=document.querySelector(".dialogMask")
+
+        login.show();
+        login.style.top = "80px";
+        signUp.style.top = "80px";
+        dialogMask.style.display = 'block';
     }
 
 })
