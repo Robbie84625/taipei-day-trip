@@ -1,10 +1,9 @@
+let currentURL = window.location.pathname;
+let parts = currentURL.split('/');
+let attractionId = parts.pop();
+
 async function loadData() {
     try {
-        
-        let currentURL = window.location.pathname;
-        let parts = currentURL.split('/');
-        let attractionId = parts.pop();
-
         const response = await fetch(`/api/attraction/${attractionId}`);
         const data = await response.json();
         return data['data'];
@@ -123,22 +122,75 @@ rightIcon.addEventListener("click", async function () {
 let btn1 =document.querySelector(".btnDiv__btn1")
 let btn2 =document.querySelector(".btnDiv__btn2")
 let costText =document.querySelector(".attractionsHub__bookingDiv__cost__dollar")
+
+price=2000;
 btn1.addEventListener("click", function() {
     btn1.style.backgroundColor = "#448899";
+    btn1.setAttribute("id", "morning");
+
     btn2.style.backgroundColor = "#FFFFFF";
+    btn2.removeAttribute("id")
+    
+    price=2000;
     costText.textContent="新台幣 2000 元"
 });
 
 btn2.addEventListener("click", function() {
     btn2.style.backgroundColor = "#448899";
-    btn1.style.backgroundColor = "#FFFFFF";
-    costText.textContent="新台幣 2500 元"
-});
+    btn2.setAttribute("id", "afternoon");
 
-let home =document.querySelector(".header__title")
-home.addEventListener("click", function() {
-    window.location.href = '/';
+    btn1.style.backgroundColor = "#FFFFFF";
+    btn1.removeAttribute("id")
+    price=2500;
+    costText.textContent="新台幣 2500 元"
 });
 
 window.onload = main();
 
+bookingBtn=document.querySelector(".attractionsHub__bookingDiv__booking__btn").addEventListener("click", function() {
+    let jwtToken = localStorage.getItem("token");
+
+    if (jwtToken !== null && jwtToken !== undefined) {
+
+        let bookingDate=document.querySelector(".attractionsHub__bookingDiv__booking__date__input").value
+        let bookingTime;
+        if (bookingDate === "") {
+            alert("日期尚未選擇");
+        }
+        else if (btn1.getAttribute("id") === "morning" || btn2.getAttribute("id") === "afternoon") {
+            bookingTime = btn1.getAttribute("id") === "morning" ? "morning" : "afternoon";
+            let data = {
+                id:attractionId,
+                date: bookingDate,
+                time: bookingTime,
+                price:price
+            }
+
+            fetch('/api/booking', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${jwtToken}`
+                },
+                body: JSON.stringify(data)
+                }).then(response => {
+                    if (response.ok) {
+                        return response.json().then(data => {
+                            window.location.href = '/booking';
+                            });
+                        }
+                    else{
+                        return response.json();
+                    }
+            })
+        }
+    } else {
+        let login=document.getElementById("login")
+        let dialogMask=document.querySelector(".dialogMask")
+
+        login.show();
+        login.style.top = "80px";
+        signUp.style.top = "80px";
+        dialogMask.style.display = 'block';
+    }
+});
