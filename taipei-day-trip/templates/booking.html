@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta charset="utf-8"/>
+    <title>台北一日遊景點</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/booking_css_selectors.css') }}">
+</head>
+<body><div class="dialogMask">
+
+    </div>
+    <dialog class="auth" id="login">
+        <div class="auth__drcoratorBar"></div>
+        <div class="auth__main" id="loginMain">
+            <img src="{{url_for('static', filename='image/icon_close.png')}}" alt="離開" class="auth__main__closeIcon" id="closeLogin"/>
+            <div class="auth__main__tittle">登入會員帳號</div>
+            <input type="text" class="auth__main__input" style="margin-top: 15px;" placeholder="輸入電子信箱" id="signInEmail"/>
+            <input type="password" class="auth__main__input" style="margin-top: 10px;" placeholder="輸入密碼" id="signInPassword"/>
+            <div class="auth__main__button" id="signInButton">登入帳戶</div>
+            <div class="auth__main__statusMessage" id="loginMessage"></div>
+            <div class="auth__main__statusChange" id="toSignUp">還沒有帳戶？點此註冊</div>
+        </div>
+    </dialog>
+    <dialog class="auth" id="signUp">
+        <div class="auth__drcoratorBar"></div>
+        <div class="auth__main"  id="signUpMain">
+            <img src="{{url_for('static', filename='image/icon_close.png')}}" alt="離開" class="auth__main__closeIcon" id="closeSignUp"/>
+            <div class="auth__main__tittle">註冊會員帳號</div>
+            <input type="text" class="auth__main__input" style="margin-top: 15px;" placeholder="輸入姓名" id="signUpName"/>
+            <input type="text" class="auth__main__input" style="margin-top: 10px;" placeholder="輸入電子信箱" id="signUpEmail"/>
+            <input type="password" class="auth__main__input" style="margin-top: 10px;" placeholder="輸入密碼" id="signUpPassword"/>
+            <div class="auth__main__button" id="signUpButton">註冊新帳戶</div>
+            <div class="auth__main__statusMessage" id="signUpMessage"></div>
+            <div class="auth__main__statusChange" id="toSignIn">已經有帳戶？點此登入</div>
+        </div>
+    </dialog>
+
+    <div class="header--wide1920">
+        <div class="header--wide1200">
+            <h2 class="header__title">
+                台北一日遊
+            </h2>
+            <div class="header__toolBar">
+                <div class="header__toolBar__item">
+                    預定行程
+                </div>
+                <div class="header__toolBar__item" id="auth">
+                    登入/註冊
+                </div>
+                <div class="header__toolBar__item" id="signOut">
+                    登出系統
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <hr/>
+        <div class="container">
+            <div class="introduction">
+                <span>你好，</span><span id="name"></span><span>，待預訂的行程如下：</span>
+            </div>
+            <div class="noSchedule" display="none">
+                目前沒有任何待預訂的行程
+            </div>
+            <div class="schedule">
+                <div class="schedule__information">
+                    <img class="schedule__information__img"/>
+                    <div class="schedule__information__detail">
+                        <div class="deleteIcon"></div>
+                        <div class="schedule__information__detail__title"></div>
+                        <div class="schedule__information__detail__item" style="margin-top: 20px;" id="bookingDate"></div>
+                        <div class="schedule__information__detail__item" id="bookingTime"></div>
+                        <div class="schedule__information__detail__item" id="cost"></div>
+                        <div class="schedule__information__detail__item" id="address"></div>
+                    </div>
+                </div>
+                <hr class="schedule__hr"/>
+            </div>
+        </div>
+        <div class="otherInformation">
+            <div class="contactInformation">
+                <div class="contactInformation__title">您的聯絡資訊</div>
+                <div class="contactInformation__item">
+                    聯絡姓名:<input type="text" class="inputClass" style="margin-top: 20px;" id="contactName"/>
+                </div>
+                <div class="contactInformation__item">
+                    聯絡信箱:<input type="text" class="inputClass"style="margin-top: 15px;" id="contactMail"/>
+                </div>
+                <div class="contactInformation__item">
+                    手機號碼:<input type="tel" class="inputClass"style="margin-top: 15px;"/>
+                </div>
+                <div class="contactInformation__item"style="margin-top: 15px;">
+                    請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。
+                </div>
+            </div>
+            <hr style="margin-top: 40px;"/>
+            <div class="creditCard">
+                <div class="creditCard__title">信用卡付款資訊</div>
+                <div class="contactInformation__item">
+                    卡片號碼:<input type="text" placeholder="**** **** **** ****" class="inputClass" style="margin-top: 20px;"/>
+                </div>
+                <div class="contactInformation__item">
+                    過期日期:<input type="text" placeholder="MM/YY"class="inputClass"style="margin-top: 15px;"/>
+                </div>
+                <div class="contactInformation__item">
+                    驗證密碼:<input type="text" placeholder="CVV" class="inputClass"style="margin-top: 15px;"/>
+                </div>
+            </div>
+            <hr style="margin-top: 40px;"/>
+            <div class="payment">
+                <div class="payment__totalCost"></div>
+                <div class="payment__btn">確認訂購並付款</div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer__content">
+                COPYRIGHT © 2021 台北一日遊
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/authSystem.js') }}"defer></script>
+    <script src="{{ url_for('static', filename='js/booking.js') }}"defer></script>
+</body>
+</html>

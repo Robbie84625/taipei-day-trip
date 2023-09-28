@@ -84,6 +84,14 @@ window.onload = function() {
         if (response.ok) {
             signOut.style.display = 'block';
             auth.style.display = 'none';
+            memberInformation=response.json().then(data => {
+                let userName=document.getElementById("name")
+                userName.textContent=data['data']['name'];
+                let contactName=document.getElementById("contactName")
+                contactName.value=data['data']['name'];
+                let contactMail=document.getElementById("contactMail")
+                contactMail.value=data['data']['email'];
+            })
         } else {
             return response.json().then(errorData => {
                 signOut.style.display = 'none';
@@ -160,11 +168,10 @@ document.getElementById("signUpButton").addEventListener("click", function() {
         passwordId.value = "";
     }
     else{
-        console.log(data)
         fetch('/api/user', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
             }).then(response => {
@@ -212,3 +219,24 @@ signOut.addEventListener("click",  function() {
     window.location.reload();
 });
 
+let home =document.querySelector(".header__title")
+home.addEventListener("click", function() {
+    window.location.href = '/';
+});
+document.querySelector(".header__toolBar__item").addEventListener("click",  function() {
+    let jwtToken = localStorage.getItem("token");
+
+    if (jwtToken !== null && jwtToken !== undefined){
+        window.location.href = '/booking';
+    }
+    else{
+        let login=document.getElementById("login")
+        let dialogMask=document.querySelector(".dialogMask")
+
+        login.show();
+        login.style.top = "80px";
+        signUp.style.top = "80px";
+        dialogMask.style.display = 'block';
+    }
+
+})

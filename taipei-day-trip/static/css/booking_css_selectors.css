@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+hr{
+    background-color: #E8E8E8;
+    height: 1px;
+    border: 0px;
+    margin: 0px;
+}
+
+.dialogMask{
+    width: 100%; height: 100%;
+    position: fixed;
+    opacity: 0.25;background: #000000;
+    z-index: 5;
+    display: none;
+}
+
+.auth{
+    width: 340px;
+    border-radius: 6px;overflow: hidden;
+    position: fixed;
+    top: -300px;
+    transition: top 0.3s ease-in-out;
+    padding: 0px;border: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 60px 0px #AAAAAA;
+    z-index: 6;
+}
+
+.auth__drcoratorBar{
+    width: 340px;height: 10px;
+    background: linear-gradient(270deg, #337788 0%, #66AABB 100%);
+}
+
+.auth__main{
+    width: 310px;
+    margin: 15px;
+    position: relative;
+}
+
+.auth__main__closeIcon{
+    position: absolute;
+    top: 0;right: 0;
+}
+
+.auth__main__tittle{
+    width: 310px;height: 27px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 24px;font-weight: 700;
+    line-height: 24px;letter-spacing: 0em;
+    text-align: center;
+    color: #666666;
+
+}
+
+.auth__main__input{
+    width: 278px;height: 15px;
+    padding: 15px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    color: #757575;
+    border: 1px solid #CCCCCC;border-radius: 5px;
+    background: #FFFFFF;
+    text-align: left;
+}
+
+.auth__main__button{
+    width: 270px;height: 27px;
+    margin-top: 10px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    background: #448899;
+    color: #FFFFFF;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 19px;font-weight: 400;
+    line-height: 16px;letter-spacing: 0em;
+    text-align: center;
+    display: flex;align-items: center;justify-content: center;
+}
+
+.auth__main__statusMessage{
+    height: 22px;margin-top: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: center;
+    color: #ff0000;display: none;
+}
+
+.auth__main__statusChange{
+    width: 310px;height: 22px;margin-top: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: center;
+    color: #666666;
+}
+
+.header--wide1920{
+    background-color: #FFFFFF;
+    height: 54px; width: 100%;
+    margin-left: auto;margin-right: auto;
+    display: flex; 
+    display: flex; position:fixed;
+    z-index: 4;
+}
+
+.header--wide1200{
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 10px;margin-bottom: 10px;
+    margin-left: auto;margin-right: auto;
+    display: flex;
+}
+
+.header__title{
+    width: 150px;height: 34px;
+    margin: 0px auto 0px 0px;
+    font-weight: 700;font-size: 30px;
+    line-height: 34px;letter-spacing: 0em;
+    color: #448899;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+@media (max-width: 600px) {
+    .header__title {
+        margin-left: 10px;
+    }
+}
+.header__toolBar{
+    width: 175px;height: 34px;
+    display: flex;
+}
+.header__toolBar__item{
+    font-family: 'Noto Sans TC', sans-serif;font-size: 16px;font-weight:normal,500;
+    line-height: 13px;letter-spacing: 0em;
+    display: flex;align-items: center; justify-content: center;
+    padding: 10px;
+    color: #666666;
+}
+.main{
+    padding-top: 54px;
+}
+
+hr{
+    background-color: #E8E8E8;
+    height: 1px;
+    border: 0px;
+    margin: 0px;
+}
+
+.container{
+    max-width: 1200px;width: 100%;
+    margin: 40px auto 0px auto;
+}
+
+
+.introduction{
+    max-width: 1000px;width: 100%;
+    margin: 0px auto;
+}
+
+.introduction span {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 19px; font-weight: 700;
+    line-height: 16px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.schedule{
+    max-width: 1000px;width: 100%;
+    width: 100%;
+    margin: 30px auto 0px auto;
+}
+
+.schedule__information{
+    margin: 30px 10px 0px 10px;
+    display: flex;
+}
+.schedule__information__img{
+    width: 250px;height: 200px;object-fit: cover;
+}
+
+.schedule__information__detail{
+    max-width: 700px;width: calc(100% - 280px); height: 200px;
+    margin-left: 30px;
+    position: relative;
+}
+.deleteIcon{
+    position: absolute;
+    width: 30px; height: 30px;
+    top: 0px;right: 0px;
+    background: url('/static/image/icon_delete.png');
+}
+
+.schedule__information__detail__title{
+    height: 14px;padding: 5px 0px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;
+    color: #448899;
+}
+
+.schedule__information__detail__item{
+    height: 14px;padding: 5px 0px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.schedule__hr{
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    .introduction{
+        max-width: 1000px;width: 100%;
+        margin: 0px 10px;
+    }
+    .schedule__information{
+        flex-wrap: wrap;
+    }
+    .schedule__information__img{
+        width: 100%;height: 200px;
+        background: #66AABB;
+    }
+    .schedule__information__detail{
+        width: 100%; height: 170px;
+        margin:30px 0px 20px 0px;
+    }
+    .schedule__hr{
+        margin-top: 0px;
+    }
+    .deleteIcon{
+        top: auto;
+        bottom: 0px;
+    }
+    
+}
+.otherInformation{
+    max-width: 1200px;width: 100%;
+    margin: 40px auto 0px auto;
+}
+
+.contactInformation{
+    max-width: 980px;width: calc(100%-20px);
+    margin: 0px auto;
+    padding: 0px 10px;
+}
+
+.contactInformation__title{
+    width: 100%;height: 16px;
+    padding: 4px 0px 4px 0px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 19px;font-weight: 700;
+    line-height: 16px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+.contactInformation__item{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 23.17px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.inputClass{
+    width:200px;height:18px;
+    padding: 10px;
+    border-radius: 5px;border: 1px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;color: #000000;
+}
+
+
+.creditCard{
+    max-width: 980px;width: calc(100%-20px);
+    margin: 40px auto 0px auto;
+    padding: 0px 10px;
+}
+
+.creditCard__title{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 19px;font-weight: 700;
+    line-height: 16px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+
+.creditCard__item{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 23.17px;letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+}
+.payment{
+    max-width: 980px;width: calc(100%-20px);
+    height: 100px;
+    margin: 40px auto 0px auto;
+    padding: 0px 10px;
+}
+
+.payment__totalCost{
+    text-align: right;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: right;height: 20px;
+}
+
+.payment__btn{
+    float: right;
+    background: #448899;
+    width: 133px;height: 16px;
+    margin-top: 22px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 19px;font-weight: 400;
+    line-height: 16px;letter-spacing: 0em;
+    text-align: center;color: #FFFFFF;
+}
+
+.footer {
+    background: #757575;
+    padding: 40px 20px; 
+}
+.footer__content{
+    width: 234px;height: 14px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 700;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: center;
+    color: #FFFFFF;
+    margin: auto;
+}
+
+.noSchedule{
+    width: 1000px;height: 24px;
+    margin: 30px auto 40px auto;
+    font-family: 'Noto Sans TC', sans-serif;font-size: 16px;
+    font-weight: 500;line-height: 13px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #666666;
+
+
+
+}
+
+
+#signOut{
+    display: none;
+}
