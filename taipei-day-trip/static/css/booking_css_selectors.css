@@ -117,12 +117,12 @@ hr{
     max-width: 1200px;
     margin-top: 10px;margin-bottom: 10px;
     margin-left: auto;margin-right: auto;
-    display: flex;justify-content: space-between;
+    display: flex;
 }
 
 .header__title{
     width: 150px;height: 34px;
-    margin: 0px;
+    margin: 0px auto 0px 0px;
     font-weight: 700;font-size: 30px;
     line-height: 34px;letter-spacing: 0em;
     color: #448899;
@@ -130,12 +130,12 @@ hr{
 }
 @media (max-width: 600px) {
     .header__title {
-        padding-left: 10px;
+        margin-left: 10px;
     }
 }
 .header__toolBar{
     width: 175px;height: 34px;
-    display: flex; justify-content: space-between;
+    display: flex;
 }
 .header__toolBar__item{
     font-family: 'Noto Sans TC', sans-serif;font-size: 16px;font-weight:normal,500;
@@ -185,7 +185,7 @@ hr{
     display: flex;
 }
 .schedule__information__img{
-    width: 250px;height: 200px;
+    width: 250px;height: 200px;object-fit: cover;
 }
 
 .schedule__information__detail{
@@ -259,7 +259,7 @@ hr{
 }
 
 .contactInformation__title{
-    width: 980px;height: 16px;
+    width: 100%;height: 16px;
     padding: 4px 0px 4px 0px;
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 19px;font-weight: 700;
@@ -281,8 +281,12 @@ hr{
     border-radius: 5px;border: 1px;
     background: #FFFFFF;
     border: 1px solid #E8E8E8;
-
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;color: #000000;
 }
+
 
 .creditCard{
     max-width: 980px;width: calc(100%-20px);

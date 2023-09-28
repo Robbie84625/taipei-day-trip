@@ -117,12 +117,12 @@ hr{
     max-width: 1200px;
     margin-top: 10px;margin-bottom: 10px;
     margin-left: auto;margin-right: auto;
-    display: flex;justify-content: space-between;
+    display: flex;
 }
 
 .header__title{
     width: 150px;height: 34px;
-    margin: 0px;
+    margin: 0px auto 0px 0px;
     font-weight: 700;font-size: 30px;
     line-height: 34px;letter-spacing: 0em;
     color: #448899;
@@ -130,12 +130,12 @@ hr{
 }
 @media (max-width: 600px) {
     .header__title {
-        padding-left: 10px;
+        margin-left: 10px;
     }
 }
 .header__toolBar{
     width: 175px;height: 34px;
-    display: flex; justify-content: space-between;
+    display: flex;
 }
 .header__toolBar__item{
     font-family: 'Noto Sans TC', sans-serif;font-size: 16px;font-weight:normal,500;
