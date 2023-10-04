@@ -356,12 +356,12 @@ def orders():
 	
 	query_data = """
     INSERT INTO Transactions (
-        number, contratName, email, phone, memberId, attractionId, date, time, price
-    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+        number, contratName, email, phone, memberId, attractionId, date, time, price,status
+    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 	"""
 	values = (orderNumber,data['order']['contact']['name'],data['order']['contact']['email'],data['order']['contact']['phone']
 		,decoded_data['data']['id'],data['order']['trip']['attraction']['id'],data['order']['trip']['date']
-		,data['order']['trip']['time'],data['order']['price'])
+		,data['order']['trip']['time'],data['order']['price'],'未付款')
 	
 	cursor.execute(query_data, values)
 
@@ -398,6 +398,8 @@ def orders():
 
 			connection = connection_pool.get_connection()
 			cursor = connection.cursor(dictionary=True)
+			cursor.execute("UPDATE Transactions SET status = '已付款'WHERE number = %s", (orderNumber,))
+
 			cursor.execute("DELETE FROM booking WHERE  memberId = %s", (decoded_data['data']['id'],))
 			connection.commit()
 			cursor.close()
