@@ -287,6 +287,19 @@ hr{
     text-align: left;color: #000000;
 }
 
+.tpfield {
+    width:200px;height:18px;
+    padding: 10px;
+    border-radius: 5px;border: 1px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;font-weight: 500;
+    line-height: 13px;letter-spacing: 0em;
+    text-align: left;color: #000000;
+}
+
+
 
 .creditCard{
     max-width: 980px;width: calc(100%-20px);
@@ -327,12 +340,12 @@ hr{
 .payment__btn{
     float: right;
     background: #448899;
-    width: 133px;height: 16px;
+    width: 173px;height: 36px;
     margin-top: 22px;
     padding: 10px 20px 10px 20px;
     border-radius: 5px;
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 19px;font-weight: 400;
+    font-size: 16px;font-weight: 400;
     line-height: 16px;letter-spacing: 0em;
     text-align: center;color: #FFFFFF;
 }
@@ -359,12 +372,12 @@ hr{
     letter-spacing: 0em;
     text-align: left;
     color: #666666;
-
-
-
 }
 
 
 #signOut{
     display: none;
 }
+
+
+

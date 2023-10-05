@@ -240,3 +240,4 @@ document.querySelector(".header__toolBar__item").addEventListener("click",  func
     }
 
 })
+

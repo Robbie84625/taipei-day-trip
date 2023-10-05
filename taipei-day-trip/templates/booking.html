@@ -87,30 +87,32 @@
                     聯絡信箱:<input type="text" class="inputClass"style="margin-top: 15px;" id="contactMail"/>
                 </div>
                 <div class="contactInformation__item">
-                    手機號碼:<input type="tel" class="inputClass"style="margin-top: 15px;"/>
+                    手機號碼:<input type="tel" class="inputClass"style="margin-top: 15px;" id="contactPhone"/>
                 </div>
                 <div class="contactInformation__item"style="margin-top: 15px;">
                     請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。
                 </div>
             </div>
             <hr style="margin-top: 40px;"/>
-            <div class="creditCard">
-                <div class="creditCard__title">信用卡付款資訊</div>
-                <div class="contactInformation__item">
-                    卡片號碼:<input type="text" placeholder="**** **** **** ****" class="inputClass" style="margin-top: 20px;"/>
+            <form  onsubmit="onSubmit(event)">
+                <div class="creditCard">
+                    <div class="creditCard__title">信用卡付款資訊</div>
+                    <div class="contactInformation__item" style="margin-top: 20px;display: flex;">
+                        <span style="margin: auto 0px;">卡片號碼:</span><div class="tpfield" id="card-number"></div>
+                    </div>
+                    <div class="contactInformation__item"style="margin-top: 15px;display: flex;">
+                        <span style="margin: auto 0px;">過期日期:</span><div class="tpfield" id="card-expiration-date"></div>
+                    </div>
+                    <div class="contactInformation__item" style="margin-top: 15px;display: flex;">
+                        <span style="margin: auto 0px;">驗證密碼:</span><div class="tpfield" id="card-ccv"></div>
+                    </div>
                 </div>
-                <div class="contactInformation__item">
-                    過期日期:<input type="text" placeholder="MM/YY"class="inputClass"style="margin-top: 15px;"/>
+                <hr style="margin-top: 40px;"/>
+                <div class="payment">
+                    <div class="payment__totalCost"></div>
+                    <button type="submit" class="payment__btn">確認訂購並付款</button>
                 </div>
-                <div class="contactInformation__item">
-                    驗證密碼:<input type="text" placeholder="CVV" class="inputClass"style="margin-top: 15px;"/>
-                </div>
-            </div>
-            <hr style="margin-top: 40px;"/>
-            <div class="payment">
-                <div class="payment__totalCost"></div>
-                <div class="payment__btn">確認訂購並付款</div>
-            </div>
+            </form>
         </div>
         <div class="footer">
             <div class="footer__content">
@@ -121,5 +123,7 @@
     
     <script src="{{ url_for('static', filename='js/authSystem.js') }}"defer></script>
     <script src="{{ url_for('static', filename='js/booking.js') }}"defer></script>
+    <script src="https://js.tappaysdk.com/tpdirect/v5.13.1"></script>
+    <script src="{{ url_for('static', filename='js/tappaySetting.js') }}"></script>
 </body>
 </html>
