@@ -84,18 +84,24 @@ window.onload = function() {
         if (response.ok) {
             signOut.style.display = 'block';
             auth.style.display = 'none';
+            loginText.style.display = 'none';
+            
             memberInformation=response.json().then(data => {
                 let userName=document.getElementById("name")
-                userName.textContent=data['data']['name'];
                 let contactName=document.getElementById("contactName")
-                contactName.value=data['data']['name'];
                 let contactMail=document.getElementById("contactMail")
-                contactMail.value=data['data']['email'];
+                
+                if(userName&&contactName&&contactMail){
+                    userName.textContent=data['data']['name'];
+                    contactName.value=data['data']['name'];
+                    contactMail.value=data['data']['email'];
+                }
             })
         } else {
             return response.json().then(errorData => {
                 signOut.style.display = 'none';
                 auth.style.display = 'block';
+                loginText.style.display = 'none';
             });
         }
     });
@@ -214,6 +220,8 @@ toSignIn.addEventListener("click",  function() {
 
 let signOut = document.getElementById('signOut');
 let auth = document.getElementById('auth');
+let loginText = document.getElementById('loginText');
+
 signOut.addEventListener("click",  function() {
     localStorage.removeItem("token");
     window.location.reload();
@@ -240,4 +248,27 @@ document.querySelector(".header__toolBar__item").addEventListener("click",  func
     }
 
 })
+
+function deleteToken() {
+    localStorage.removeItem('token');
+}
+
+let idleTimeout;
+
+function resetIdleTimer() {
+    clearTimeout(idleTimeout);
+    idleTimeout = setTimeout(function() {
+        if (localStorage.getItem('token')) {
+            deleteToken();
+            window.location.reload();
+        }
+    }, 300000); // 5分鐘閒置時間
+}
+
+// 監聽用戶活動
+document.addEventListener('mousemove', resetIdleTimer);
+document.addEventListener('keypress', resetIdleTimer);
+
+// 初始化計時器
+resetIdleTimer();
 
