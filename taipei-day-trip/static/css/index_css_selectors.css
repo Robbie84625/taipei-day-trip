@@ -368,6 +368,13 @@ display: flex;
     transition: transform 0.2s; 
 }
 
+#auth{
+    display: none;
+}
+
 #signOut{
     display: none;
+}
+#loginText{
+    margin: 0px auto;
 }

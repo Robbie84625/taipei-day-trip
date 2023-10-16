@@ -473,6 +473,13 @@ hr{
     margin: auto;
 }
 
+#auth{
+    display: none;
+}
+
 #signOut{
     display: none;
+}
+#loginText{
+    margin: 0px auto;
 }

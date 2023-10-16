@@ -10,6 +10,8 @@ async function loadData() {
     } catch (error) {
         console.error("Error loading attraction image:", error);
         return null;
+    } finally{
+        
     }
 }
 
@@ -33,7 +35,6 @@ async function main(){
             defaultImg.style.display = "none";
         };
 
-        
         let bannerItem = document.createElement("div");
         bannerItem.className = "attractionsHub__imgDiv__banner__item";
         let bannerItemIcon = document.createElement("div");

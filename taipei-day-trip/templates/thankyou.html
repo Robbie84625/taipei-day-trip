@@ -6,7 +6,8 @@
     <title>台北一日遊景點</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/thankyou.css') }}">
 </head>
-<body><div class="dialogMask">
+<body>
+    <div class="dialogMask">
 
     </div>
     <dialog class="auth" id="login">
@@ -49,6 +50,7 @@
                 <div class="header__toolBar__item" id="signOut">
                     登出系統
                 </div>
+                <img src="{{ url_for('static', filename='image/loginText.gif') }}" alt="載入使用者狀態前預設" id="loginText"/>
             </div>
         </div>
     </div>

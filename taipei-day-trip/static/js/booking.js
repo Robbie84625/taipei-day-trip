@@ -15,9 +15,12 @@ document.querySelector(".deleteIcon").addEventListener("click",  function() {
             return response.json();
         }
     }).then(data => {
-        console.log(data);
+        window.location.reload();
     })
 })
+
+const loadingWebElement = document.getElementById('loadingWeb');
+loadingWebElement.style.display = 'block';
 
 async function fetchData() {
     try {
@@ -93,3 +96,7 @@ fetchData();
 function processAttractionId(bookingData) {
     return bookingData; // 在赋值之后执行
 }
+
+window.addEventListener('load', () => {
+    loadingWebElement.style.display = 'none';
+});
