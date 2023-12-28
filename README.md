@@ -10,3 +10,8 @@
 - 框架 : Python Flask
 - 資料庫 : MySQL
 - 雲端伺服器 : AWS EC2
+## 測試帳號
+- Email : aaa@aaa.com
+- Password : aaa
+## 主要特色
+#### 無限滾動
