@@ -56,12 +56,14 @@ function loadNextPage() {
             isLoading = false; 
 
             container.appendChild(attractionItemDiv);
+            attractionItemDetailDiv.style.backgroundSize = "110%";
+            attractionItemDetailDiv.style.transition = "background-size 0.5s ease-in-out";
 
             attractionItemDetailDiv.addEventListener("mouseenter", function() {
-                attractionItemDetailDiv.style.opacity = 0.75;
+                attractionItemDetailDiv.style.backgroundSize = "140%";
             });
             attractionItemDetailDiv.addEventListener("mouseleave", function() {
-                attractionItemDetailDiv.style.opacity =1;
+                attractionItemDetailDiv.style.backgroundSize = "110%";
             });
             attractionItemDetailDiv.addEventListener("click", function() {
                 window.location.href = `/attraction/${detail['id']}`;
