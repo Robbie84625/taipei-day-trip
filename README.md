@@ -27,4 +27,7 @@
 ## 資料庫設計
 ![Database ERD](https://github.com/Robbie84625/taipei-day-trip/blob/main/taipei-day-trip/static/image/README/taipeiDayTrip_ERD.png?raw=true)
 ## 架構圖
-![Architecture](https://github.com/Robbie84625/taipei-day-trip/blob/main/taipei-day-trip/static/image/README/%E5%8F%B0%E5%8C%97%E4%B8%80%E6%97%A5%E9%81%8A%E6%9E%B6%E6%A7%8B%E5%9C%96.png?raw=true)
+<p align="center">
+  <img src="https://github.com/Robbie84625/taipei-day-trip/blob/main/taipei-day-trip/static/image/README/%E5%8F%B0%E5%8C%97%E4%B8%80%E6%97%A5%E9%81%8A%E6%9E%B6%E6%A7%8B%E5%9C%96.png?raw=true" alt="Architecture">
+</p>
+
